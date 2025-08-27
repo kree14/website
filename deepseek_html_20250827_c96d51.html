@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FF Panel Hack - Ultimate Gaming Advantage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        secondary: '#FF00FF',
+                        dark: '#0F172A',
+                        darker: '#0A0E1A'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A;
+            color: #E2E8F0;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, .font-gaming {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #8B5CF6, #FF00FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
+        }
+        
+        .dashboard-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .glow {
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+        }
+        
+        .plan-card {
+            transition: all 0.3s ease;
+        }
+        
+        .plan-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .recommended {
+            position: relative;
+            border: 2px solid #8B5CF6;
+            z-index: 10;
+        }
+        
+        .recommended::before {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #8B5CF6;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 4px;
+            z-index: 11;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        /* Smooth transitions for modals */
+        .modal {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .modal-hidden {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+        }
+        
+        .modal-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Table styling */
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        
+        th {
+            background-color: #1E293B;
+            position: sticky;
+            top: 0;
+        }
+        
+        tr:hover {
+            background-color: #1E293B;
+        }
+        
+        .status-completed {
+            color: #10B981;
+        }
+        
+        .status-pending {
+            color: #F59E0B;
+        }
+    </style>
+</head>
+<body class="bg-dark min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 dashboard-nav py-4 px-6 flex justify-between items-center">
+        <div class="flex items-center">
+            <span class="text-2xl font-gaming font-bold gradient-text">FF PANEL HACK</span>
+        </div>
+        
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="hover:text-purple-400 transition">Home</a>
+            <a href="#features" class="hover:text-purple-400 transition">Features</a>
+            <a href="#pricing" class="hover:text-purple-400 transition">Pricing</a>
+            <a href="#faq" class="hover:text-purple-400 transition">FAQ</a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <button id="loginBtn" class="px-4 py-2 bg-purple-700 hover:bg-purple-600 rounded-lg transition">Login</button>
+            <button id="adminBtn" class="px-4 py-2 bg-blue-700 hover:bg-blue-600 rounded-lg transition hidden">Admin</button>
+            <button class="md:hidden" id="mobileMenuBtn">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 bg-darker bg-gradient-to-b from-purple-900/10 to-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-gaming font-bold mb-6">
+                        DOMINATE <span class="gradient-text">FREE FIRE</span> WITH OUR ADVANCED PANEL
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8">
+                        Unlock the ultimate gaming experience with our premium FF Panel Hack. Get ahead of the competition with features designed for both PC and mobile gamers.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button class="px-6 py-3 bg-purple-700 hover:bg-purple-600 rounded-lg font-semibold transition flex items-center">
+                            <i class="fas fa-crown mr-2"></i> Get Started
+                        </button>
+                        <button class="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg font-semibold transition">
+                            View Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-80 h-80 float-animation">
+                        <div class="absolute inset-0 bg-purple-900/30 rounded-xl transform rotate-6"></div>
+                        <div class="absolute inset-0 bg-purple-700/20 rounded-xl transform -rotate-6"></div>
+                        <div class="absolute inset-0 bg-gray-800 rounded-xl flex items-center justify-center p-6">
+                            <img src="https://placehold.co/300x300/8B5CF6/FFFFFF?text=FF+Panel+Hack" alt="FF Panel Hack" class="rounded-lg glow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 bg-dark">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-gaming font-bold text-center mb-4">POWERFUL FEATURES</h2>
+            <p class="text-gray-400 text-center mb-16">Designed for both PC and Mobile gamers</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800/50 p-6 rounded-xl card-hover">
+                    <div class="w-14 h-14 bg-purple-700 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-gaming font-semibold mb-2">Aim Assistance</h3>
+                    <p class="text-gray-400">Enhanced targeting system for precise shots and improved accuracy.</p>
+                </div>
+                
+                <div class="bg-gray-800/50 p-6 rounded-xl card-hover">
+                    <div class="w-14 h-14 bg-purple-700 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-eye text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-gaming font-semibold mb-2">Wall Detection</h3>
+                    <p class="text-gray-400">See through obstacles and never be surprised by enemy movements.</p>
+                </div>
+                
+                <div class="bg-gray-800/50 p-6 rounded-xl card-hover">
+                    <div class="w-14 h-14 bg-purple-700 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-running text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-gaming font-semibold mb-2">Speed Boost</h3>
+                    <p class="text-gray-400">Move faster than other players and dominate the battlefield.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-6 bg-darker">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-gaming font-bold text-center mb-4">CHOOSE YOUR PLAN</h2>
+            <p class="text-gray-400 text-center mb-16">Affordable pricing with powerful features</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-gray-800 p-6 rounded-xl plan-card">
+                    <h3 class="text-2xl font-gaming font-semibold mb-2">Basic</h3>
+                    <p class="text-gray-400 mb-6">For casual gamers</p>
+                    <div class="text-3xl font-bold mb-6">₹599 <span class="text-sm text-gray-400">/month</span></div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Aim Assistance (Basic)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Wall Detection (Limited)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-times-circle text-gray-600 mr-2"></i>
+                            <span class="text-gray-600">Speed Boost</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-times-circle text-gray-600 mr-2"></i>
+                            <span class="text-gray-600">Priority Support</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-semibold transition plan-select" data-plan="Basic" data-price="599">
+                        Select Plan
+                    </button>
+                </div>
+                
+                <!-- Pro Plan (Recommended) -->
+                <div class="bg-gray-800 p-6 rounded-xl plan-card recommended">
+                    <h3 class="text-2xl font-gaming font-semibold mb-2">Pro</h3>
+                    <p class="text-gray-400 mb-6">For serious gamers</p>
+                    <div class="text-3xl font-bold mb-6">₹899 <span class="text-sm text-gray-400">/month</span></div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Aim Assistance (Advanced)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Wall Detection (Full)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Speed Boost (Limited)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Priority Support</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-3 bg-purple-700 hover:bg-purple-600 rounded-lg font-semibold transition plan-select" data-plan="Pro" data-price="899">
+                        Select Plan
+                    </button>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="bg-gray-800 p-6 rounded-xl plan-card">
+                    <h3 class="text-2xl font-gaming font-semibold mb-2">Premium</h3>
+                    <p class="text-gray-400 mb-6">For competitive players</p>
+                    <div class="text-3xl font-bold mb-6">₹1200 <span class="text-sm text-gray-400">/month</span></div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Aim Assistance (Pro)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Wall Detection (Advanced)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Speed Boost (Full)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>24/7 Premium Support</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-semibold transition plan-select" data-plan="Premium" data-price="1200">
+                        Select Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="py-20 px-6 bg-dark">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-gaming font-bold text-center mb-4">USER DASHBOARD</h2>
+            <p class="text-gray-400 text-center mb-16">Manage your account and features</p>
+            
+            <div class="bg-gray-800 rounded-xl overflow-hidden">
+                <div class="dashboard-nav px-6 py-4 flex justify-between items-center">
+                    <span class="font-gaming text-lg">FF Panel Control Center</span>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span>Online</span>
+                    </div>
+                </div>
+                
+                <div class="p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="md:col-span-1 bg-darker rounded-lg p-4">
+                        <div class="flex flex-col space-y-4">
+                            <button class="px-4 py-2 bg-purple-700 rounded-lg text-left">Dashboard</button>
+                            <button class="px-4 py-2 hover:bg-gray-700 rounded-lg text-left">Features</button>
+                            <button class="px-4 py-2 hover:bg-gray-700 rounded-lg text-left">Settings</button>
+                            <button class="px-4 py-2 hover:bg-gray-700 rounded-lg text-left">Support</button>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-3 bg-darker rounded-lg p-4">
+                        <h3 class="text-xl font-gaming mb-4">Feature Control</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span>Aim Assistance</span>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                    </label>
+                                </div>
+                                <p class="text-sm text-gray-400">Adjust aiming sensitivity and precision</p>
+                            </div>
+                            
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span>Wall Detection</span>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                    </label>
+                                </div>
+                                <p class="text-sm text-gray-400">Detect enemies through obstacles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-6 bg-darker">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-gaming font-bold text-center mb-4">FREQUENTLY ASKED QUESTIONS</h2>
+            <p class="text-gray-400 text-center mb-16">Get answers to common questions</p>
+            
+            <div class="space-y-4">
+                <div class="bg-gray-800/50 p-6 rounded-xl">
+                    <h3 class="text-xl font-gaming font-semibold mb-2">Is this hack detectable?</h3>
+                    <p class="text-gray-400">Our hack uses advanced undetectable technology, but we always recommend using it responsibly.</p>
+                </div>
+                
+                <div class="bg-gray-800/50 p-6 rounded-xl">
+                    <h3 class="text-xl font-gaming font-semibold mb-2">Does it work on both PC and Mobile?</h3>
+                    <p class="text-gray-400">Yes, our panel is compatible with both PC emulators and mobile devices.</p>
+                </div>
+                
+                <div class="bg-gray-800/50 p-6 rounded-xl">
+                    <h3 class="text-xl font-gaming font-semibold mb-2">How do I update the hack?</h3>
+                    <p class="text-gray-400">Updates are automatically delivered through your dashboard when you're logged in.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-dark border-t border-gray-700">
+        <div class="container mx-auto max-w-6xl text-center">
+            <span class="text-2xl font-gaming font-bold gradient-text">FF PANEL HACK</span>
+            <p class="text-gray-400 mt-4">© 2023 FF Panel Hack. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 flex items-center justify-center z-50 modal modal-hidden">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative bg-gray-800 rounded-xl p-8 max-w-md w-full mx-4">
+            <h2 class="text-2xl font-gaming font-bold mb-6">Login to Dashboard</h2>
+            
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-gray-400 mb-2">Username</label>
+                    <input type="text" class="w-full bg-gray-700 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-purple-600" required>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-400 mb-2">Password</label>
+                    <input type="password" class="w-full bg-gray-700 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-purple-600" required>
+                </div>
+                
+                <button type="submit" class="w-full py-3 bg-purple-700 hover:bg-purple-600 rounded-lg font-semibold transition">
+                    Login
+                </button>
+            </form>
+            
+            <p class="text-center mt-4 text-gray-400">
+                Don't have an account? <a href="#" class="text-purple-400 hover:underline">Register</a>
+            </p>
+            
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-white" id="closeLoginModal">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="fixed inset-0 flex items-center justify-center z-50 modal modal-hidden">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative bg-gray-800 rounded-xl p-8 max-w-md w-full mx-4">
+            <h2 class="text-2xl font-gaming font-bold mb-6">Complete Your Purchase</h2>
+            
+            <div class="mb-6 p-4 bg-darker rounded-lg">
+                <h3 class="text-lg font-semibold mb-2">Plan: <span id="selectedPlan">Pro</span></h3>
+                <p class="text-2xl font-bold">₹<span id="selectedPrice">899</span> <span class="text-sm text-gray-400">/month</span></p>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-4">Payment Method</h3>
+                <div class="bg-darker p-4 rounded-lg">
+                    <p class="text-center text-gray-400 mb-2">Send payment via UPI to:</p>
+                    <div class="flex items-center justify-between bg-gray-700 p-3 rounded-lg mb-4">
+                        <span class="font-mono">jaiswalkaushal@fam</span>
+                        <button class="text-purple-400" id="copyUpi">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                    <p class="text-sm text-center text-gray-400 mb-4">
+                        <i class="fab fa-instagram mr-1 text-purple-400"></i>
+                        After payment, share the screenshot on Instagram to 
+                        <span class="font-semibold text-purple-400">@kj_trusted_sellers</span>
+                        for activation
+                    </p>
+                    <p class="text-sm text-gray-400 text-center">Your account will be activated within 24 hours after verification.</p>
+                </div>
+            </div>
+            
+            <div class="flex space-x-4">
+                <button class="flex-1 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-semibold transition" id="closePaymentModal">
+                    Cancel
+                </button>
+                <button class="flex-1 py-3 bg-purple-700 hover:bg-purple-600 rounded-lg font-semibold transition" id="confirmPayment">
+                    Confirm Payment
+                </button>
+            </div>
+            
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-white" id="closePaymentModalX">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div id="adminModal" class="fixed inset-0 flex items-center justify-center z-50 modal modal-hidden">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative bg-gray-800 rounded-xl p-8 max-w-6xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <h2 class="text-2xl font-gaming font-bold mb-6">Admin Dashboard</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-darker p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold mb-2">Total Revenue</h3>
+                    <p class="text-2xl font-bold">₹12,599</p>
+                </div>
+                
+                <div class="bg-darker p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold mb-2">Active Subscriptions</h3>
+                    <p class="text-2xl font-bold">24</p>
+                </div>
+                
+                <div class="bg-darker p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold mb-2">Pending Activations</h3>
+                    <p class="text-2xl font-bold">3</p>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-gaming font-semibold mb-4">Recent Payments</h3>
+            <div class="bg-darker rounded-lg p-4 table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>User</th>
+                            <th>Plan</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#TRX-7842</td>
+                            <td>gamer123</td>
+                            <td>Pro</td>
+                            <td>₹899</td>
+                            <td>2023-10-15</td>
+                            <td class="status-completed">Completed</td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-7841</td>
+                            <td>ff_lover</td>
+                            <td>Premium</td>
+                            <td>₹1200</td>
+                            <td>2023-10-15</td>
+                            <td class="status-completed">Completed</td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-7840</td>
+                            <td>pro_gamer</td>
+                            <td>Basic</td>
+                            <td>₹599</td>
+                            <td>2023-10-14</td>
+                            <td class="status-completed">Completed</td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-7839</td>
+                            <td>new_user</td>
+                            <td>Pro</td>
+                            <td>₹899</td>
+                            <td>2023-10-14</td>
+                            <td class="status-pending">Pending</td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-7838</td>
+                            <td>game_master</td>
+                            <td>Premium</td>
+                            <td>₹1200</td>
+                            <td>2023-10-13</td>
+                            <td class="status-completed">Completed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-white" id="closeAdminModal">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const loginBtn = document.getElementById('loginBtn');
+        const adminBtn = document.getElementById('adminBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+        const paymentModal = document.getElementById('paymentModal');
+        const closePaymentModal = document.getElementById('closePaymentModal');
+        const closePaymentModalX = document.getElementById('closePaymentModalX');
+        const planButtons = document.querySelectorAll('.plan-select');
+        const selectedPlan = document.getElementById('selectedPlan');
+        const selectedPrice = document.getElementById('selectedPrice');
+        const copyUpi = document.getElementById('copyUpi');
+        const confirmPayment = document.getElementById('confirmPayment');
+        const adminModal = document.getElementById('adminModal');
+        const closeAdminModal = document.getElementById('closeAdminModal');
+        const loginForm = document.getElementById('loginForm');
+        
+        // Open Login Modal
+        loginBtn.addEventListener('click', () => {
+            loginModal.classList.remove('modal-hidden');
+            loginModal.classList.add('modal-visible');
+        });
+        
+        // Close Login Modal
+        closeLoginModal.addEventListener('click', () => {
+            loginModal.classList.remove('modal-visible');
+            loginModal.classList.add('modal-hidden');
+        });
+        
+        // Plan Selection
+        planButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const plan = button.getAttribute('data-plan');
+                const price = button.getAttribute('data-price');
+                
+                selectedPlan.textContent = plan;
+                selectedPrice.textContent = price;
+                
+                paymentModal.classList.remove('modal-hidden');
+                paymentModal.classList.add('modal-visible');
+            });
+        });
+        
+        // Close Payment Modal
+        const closePayment = () => {
+            paymentModal.classList.remove('modal-visible');
+            paymentModal.classList.add('modal-hidden');
+        };
+        
+        closePaymentModal.addEventListener('click', closePayment);
+        closePaymentModalX.addEventListener('click', closePayment);
+        
+        // Copy UPI ID
+        copyUpi.addEventListener('click', () => {
+            navigator.clipboard.writeText('jaiswalkaushal@fam');
+            
+            // Show feedback
+            const originalHtml = copyUpi.innerHTML;
+            copyUpi.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            
+            setTimeout(() => {
+                copyUpi.innerHTML = originalHtml;
+            }, 2000);
+        });
+        
+        // Confirm Payment
+        confirmPayment.addEventListener('click', () => {
+            alert('Payment confirmed! Please share your payment screenshot on Instagram to @kj_trusted_sellers for activation.');
+            closePayment();
+        });
+        
+        // Open Admin Modal
+        adminBtn.addEventListener('click', () => {
+            adminModal.classList.remove('modal-hidden');
+            adminModal.classList.add('modal-visible');
+        });
+        
+        // Close Admin Modal
+        closeAdminModal.addEventListener('click', () => {
+            adminModal.classList.remove('modal-visible');
+            adminModal.classList.add('modal-hidden');
+        });
+        
+        // Login Form Submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = e.target.elements[0].value;
+            const password = e.target.elements[1].value;
+            
+            // Simple authentication (in a real app, this would be server-side)
+            if (username === 'admin' && password === 'admin123') {
+                adminBtn.classList.remove('hidden');
+                alert('Admin login successful!');
+            } else if (username && password) {
+                alert('User login successful!');
+            }
+            
+            loginModal.classList.remove('modal-visible');
+            loginModal.classList.add('modal-hidden');
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        mobileMenuBtn.addEventListener('click', () => {
+            alert('Mobile menu would open here. In a real implementation, this would show a navigation drawer.');
+        });
+        
+        // Simulate admin login (for demo purposes)
+        setTimeout(() => {
+            adminBtn.classList.remove('hidden');
+        }, 3000);
+    </script>
+</body>
+</html>
